@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('food_id');
+            $table->string('active_or_not');
             $table->timestamps();
         });
     }
