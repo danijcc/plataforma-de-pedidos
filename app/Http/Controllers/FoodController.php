@@ -55,7 +55,13 @@ class FoodController extends Controller
      */
     public function update(Request $request, Food $food)
     {
-        return "patch";
+        $request->validate([
+            'title' => ['required']
+        ]);
+        $food->title = $request->input('title');
+        $food->save();
+
+        return $food;
     }
 
     /**
@@ -66,6 +72,7 @@ class FoodController extends Controller
      */
     public function destroy(Food $food)
     {
-        return "delete";
+       $food->delete();
+       return response()->noContent();
     }
 }
