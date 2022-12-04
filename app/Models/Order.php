@@ -15,7 +15,7 @@ class Order extends Model
         return $this->belongsTo(User::class);
     }
       //relacion muchos a muchos
-      public function foods()
+      public function food()
       {
           return $this->belongsToMany(Food::class);
       }

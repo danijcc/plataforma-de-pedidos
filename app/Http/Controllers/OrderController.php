@@ -14,7 +14,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        return Order::paginate();
     }
 
     /**
@@ -25,7 +25,18 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'user_id' => ['required'],
+            'food_id' => ['required'],
+            'is_active' => ['required'],
+        ]);
+        $order = new Order;
+        $order->user_id = $request->input('user_id'); 
+        $order->food_id = $request->input('food_id'); 
+        $order->is_active = $request->input('is_active'); 
+        $order->save();
+
+        return $order;
     }
 
     /**
@@ -36,7 +47,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        return $order;
     }
 
     /**
@@ -48,7 +59,13 @@ class OrderController extends Controller
      */
     public function update(Request $request, Order $order)
     {
-        //
+        $request->validate([
+            'is_active' => ['required']
+        ]);
+        $order->is_active = $request->input('is_active');
+        $order->save();
+
+        return $order;
     }
 
     /**
@@ -59,6 +76,7 @@ class OrderController extends Controller
      */
     public function destroy(Order $order)
     {
-        //
+        $order->delete();
+       return response()->noContent();
     }
 }

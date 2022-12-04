@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('food_id');
-            $table->string('active_or_not');
+            $table->string('is_active');
             $table->timestamps();
         });
     }
