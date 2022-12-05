@@ -26,7 +26,7 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'user_id' => ['required'],
+            'user_id' => ['required'], 
             'food_id' => ['required'],
             'is_active' => ['required'],
         ]);
@@ -74,9 +74,9 @@ class OrderController extends Controller
      * @param  \App\Models\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Order $order)
-    {
-        $order->delete();
-       return response()->noContent();
-    }
+    // public function destroy(Order $order)
+    // {
+    //     $order->delete();
+    //    return response()->noContent();
+    // }
 }

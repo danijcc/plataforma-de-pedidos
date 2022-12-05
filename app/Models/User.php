@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\Models\Order;
+
 //implements JWTSubject
 class User extends Authenticatable implements JWTSubject
 {
@@ -56,7 +58,7 @@ class User extends Authenticatable implements JWTSubject
         return [];
     }
 
-    //Relacion uno a muchos
+    //Relacion uno a muchos work ok!
     public function orders()
     {
         return $this->hasMany(Order::class);
