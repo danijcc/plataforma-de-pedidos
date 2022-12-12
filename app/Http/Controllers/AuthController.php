@@ -15,7 +15,8 @@ class AuthController extends Controller
     // endpoint register
     public function register(Request $request)
     {
-
+        // dd($request->all());
+        
         Log::info($request);
         $validator = Validator::make($request->only('name','email','password'), [
             'name' => 'required|string|max:255',
@@ -42,6 +43,7 @@ class AuthController extends Controller
     // endpoint login
     public function login(Request $request)
     {
+        //dd($request->all());
         $credentials = $request->only('email', 'password');
 
         if (! $token = auth()->attempt($credentials)) {
@@ -54,6 +56,7 @@ class AuthController extends Controller
     public function authenticate(Request $request)
     {
       $credentials = $request->only('email', 'password');
+      
       try {
           if (! $token = JWTAuth::attempt($credentials)) {
               return response()->json(['error' => 'invalid_credentials'], 400);
@@ -61,6 +64,7 @@ class AuthController extends Controller
       } catch (JWTException $e) {
           return response()->json(['error' => 'could_not_create_token'], 500);
       }
+     
       return response()->json(compact('token'));
     }
 
