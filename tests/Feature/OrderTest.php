@@ -27,7 +27,7 @@ class OrderTest extends TestCase
             // ->assertJson(['created' => true,]);
     }
 
-    public function test_food_index()
+    public function test_order_index()
     {
         $response = $this->getJson('/api/orders/');
         
@@ -37,7 +37,7 @@ class OrderTest extends TestCase
             // ->assertJson(['created' => true,]);
     }
 
-    public function test_food_show()
+    public function test_order_show()
     {
         $response = $this->getJson('/api/orders/9');
         
@@ -47,7 +47,7 @@ class OrderTest extends TestCase
             // ->assertJson(['created' => true,]);
     }
 
-    public function test_food_patch()
+    public function test_order_patch()
     {
         $response = $this->patchJson('/api/orders/9',
                                     ['is_active' => '2']);

@@ -37,7 +37,7 @@ class FoodTest extends TestCase
    
     public function test_food_show()
     {
-        $response = $this->getJson('/api/foods/11');
+        $response = $this->getJson('/api/foods/97');
         
         // $response->dump();
         $response
@@ -47,7 +47,7 @@ class FoodTest extends TestCase
     
     public function test_food_patch()
     {
-        $response = $this->patchJson('/api/foods/11',
+        $response = $this->patchJson('/api/foods/97',
                                     ['title' => 'Comida updated']);
         
         //$response->dump();
@@ -58,7 +58,7 @@ class FoodTest extends TestCase
     
     public function test_food_delete()
     {
-        $response = $this->deleteJson('/api/foods/11');
+        $response = $this->deleteJson('/api/foods/97');
         
        // $response->dump();
         $response
